@@ -25,8 +25,8 @@ package main
 
 import (
     "github.com/gofiber/fiber/v2"
-    "github.com/tu_usuario/api-rest-go/config"
-    "github.com/tu_usuario/api-rest-go/routes"
+    "github.com/ImanolCE/api-rest-go/config"
+    "github.com/ImanolCE/api-rest-go/routes"
 )
 
 func main() {

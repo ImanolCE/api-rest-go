@@ -10,9 +10,9 @@ import (
     "go.mongodb.org/mongo-driver/bson/primitive"
     "go.mongodb.org/mongo-driver/mongo"
 
-    "github.com/tu_usuario/fiber-tasks-api/config"
-    "github.com/tu_usuario/fiber-tasks-api/models"
-    "github.com/tu_usuario/fiber-tasks-api/utils"
+    "github.com/ImanolCE/api-rest-go/config"
+    "github.com/ImanolCE/api-rest-go/models"
+    "github.com/ImanolCE/api-rest-go/utils"
 
     "golang.org/x/crypto/bcrypt"
 )
@@ -22,7 +22,7 @@ func getCollectionUsers() *mongo.Collection {
     return config.ClientMongo.Database(config.DBName).Collection("users")
 }
 
-// RegisterUser crea un usuario nuevo (hash de contraseña + guardado en DB)
+// RegisterUser crea un usuario nuevo donde hace el hash de contraseña + guardado en DB
 func RegisterUser(c *fiber.Ctx) error {
     type Request struct {
         Nombre          string `json:"nombre"`
@@ -156,7 +156,7 @@ func GetUser(c *fiber.Ctx) error {
     return c.JSON(user)
 }
 
-// UpdateUser actualiza datos (excepto contraseña, que podrías agregar con endpoint separado)
+// UpdateUser actualiza datos (excepto contraseña)
 func UpdateUser(c *fiber.Ctx) error {
     idParam := c.Params("id")
     objectID, err := primitive.ObjectIDFromHex(idParam)
@@ -169,7 +169,7 @@ func UpdateUser(c *fiber.Ctx) error {
         return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Datos inválidos"})
     }
 
-    // Prohibimos cambiar el campo "password" directamente desde aquí
+    // qui se prohibimos cambiar el campo "password" desde aquí
     delete(updates, "password")
 
     col := getCollectionUsers()

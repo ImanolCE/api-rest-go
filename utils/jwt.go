@@ -7,7 +7,7 @@ import (
     "github.com/golang-jwt/jwt/v4"
 )
 
-var jwtSecret = []byte("SECRETO_UTEQ") 
+var jwtSecret = []byte("SECRETO_UTEQ2") 
 
 // ClaimsPersonalizados hereda de jwt.RegisteredClaims para agregar campos extras
 type ClaimsPersonalizados struct {
@@ -15,7 +15,7 @@ type ClaimsPersonalizados struct {
     jwt.RegisteredClaims
 }
 
-// GenerarToken genera un JWT para un userID dado con expiración de 10 minutos
+// GenerarToken, es el qie genera un JWT para un userID, dado con expiración de 10 minutos
 func GenerarToken(userID string) (string, error) {
     expira := time.Now().Add(10 * time.Minute)
 

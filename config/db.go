@@ -11,8 +11,8 @@ import (
     "go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// MongoURI apunta a tu servidor de Mongo. 
-// Puedes cambiar "mongodb://localhost:27017" por la URI de tu Atlas o tu Docker local.
+// el Mong URI apunta al servidor de Mongo. 
+
 const MongoURI = "mongodb://localhost:27017" 
 const DBName = "api_rest_db"
 

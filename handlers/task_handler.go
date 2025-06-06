@@ -10,8 +10,8 @@ import (
     "go.mongodb.org/mongo-driver/bson/primitive"
     "go.mongodb.org/mongo-driver/mongo"
 
-    "github.com/tu_usuario/fiber-tasks-api/config"
-    "github.com/tu_usuario/fiber-tasks-api/models"
+    "github.com/ImanolCE/api-rest-go/config"
+    "github.com/ImanolCE/api-rest-go/models"
 )
 
 // getCollectionTasks devuelve la colección "tasks"
@@ -94,7 +94,7 @@ func GetTasks(c *fiber.Ctx) error {
     return c.JSON(tasks)
 }
 
-// GetTask obtiene una task específica (solo si pertenece al usuario)
+// GetTask obtiene una task específico, pero solo si pertenece al usuario
 func GetTask(c *fiber.Ctx) error {
     idParam := c.Params("id")
     taskID, err := primitive.ObjectIDFromHex(idParam)
@@ -117,7 +117,7 @@ func GetTask(c *fiber.Ctx) error {
     return c.JSON(task)
 }
 
-// UpdateTask actualiza campos de una task (solo si es del usuario)
+// UpdateTask actualiza campos de una task pero solo si es del usuario
 func UpdateTask(c *fiber.Ctx) error {
     idParam := c.Params("id")
     taskID, err := primitive.ObjectIDFromHex(idParam)
@@ -163,7 +163,7 @@ func UpdateTask(c *fiber.Ctx) error {
     return c.JSON(fiber.Map{"message": "Task actualizada exitosamente"})
 }
 
-// DeleteTask elimina una task (si pertenece al usuario)
+// DeleteTask, elimina una task, pwero solo si pertenece al usuario
 func DeleteTask(c *fiber.Ctx) error {
     idParam := c.Params("id")
     taskID, err := primitive.ObjectIDFromHex(idParam)

@@ -3,11 +3,11 @@ package middleware
 
 import (
     "github.com/gofiber/fiber/v2"
-    "github.com/golang-jwt/jwt/v4"
-    "github.com/tu_usuario/fiber-tasks-api/utils"
+   // "github.com/golang-jwt/jwt/v4"
+    "github.com/ImanolCE/api-rest-go/utils"
 )
 
-// ExtractToken extrae el token del header "Authorization: Bearer <token>"
+// ExtractToken, es el que extrae el token del header "Authorization: Bearer <token>"
 func ExtractToken(c *fiber.Ctx) string {
     authHeader := c.Get("Authorization")
     // El header viene como "Bearer <token>"
@@ -17,7 +17,7 @@ func ExtractToken(c *fiber.Ctx) string {
     return ""
 }
 
-// JWTMiddleware verifica la validez del token antes de permitir el acceso a rutas protegidas
+// JWTMiddleware verifica la validez del token,	 antes de permitir el acceso a rutas protegidas
 func JWTMiddleware(c *fiber.Ctx) error {
     tokenString := ExtractToken(c)
     if tokenString == "" {
