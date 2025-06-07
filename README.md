@@ -4,7 +4,7 @@ Este proyecto es una API REST  que se desarrolla con Go usando el framework Fibe
 
 ## Características
 - Gestión de usuarios (CRUD)
-- Gestión de tareas (Tasks CRUD)
+- Gestión de tareas 
 - Autenticación JWT (validez 10 minutos)
 - Conexión con MongoDB
 - Estructura que fomente buenas practicas
